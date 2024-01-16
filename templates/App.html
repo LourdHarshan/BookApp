@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lourd Harshan">
+    <title>BooksApp</title>
+    <link rel="icon" href="../static/Images/AppIcon.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body,html{
+        margin: 0;
+        padding: 0px;;
+        }
+        #container{
+            position:relative;
+            display: flex;
+            flex-direction: row;
+            background-color: rgba(0,0,0,0.75);
+            color: white;
+        }
+        #container  div{
+            position: fixed;
+            background-color: white;
+            color:black;
+            margin-top: 60px;
+            margin-left: 1440px;
+            box-shadow: 1px 1px 1px 1px black;
+            border-radius: 5px;
+            display:none;
+        }
+        #container  div a{
+        text-transform: capitalize;
+        font-size: larger;
+        height: 30px;
+        display:block;
+        margin: 20px 0px;
+        padding-left: 20px;
+        padding-right: 20px;
+        }
+        #container div a:hover{
+            background-color: rgba(0,0,0,0.75);
+            color:white;
+        }
+        #mainContainer{
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        #mainContainer div{
+            display:flex;
+            flex-direction: row;
+            padding: 10px 10px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 1px 1px black;
+            margin: 10px 10px;
+        }
+        #mainContainer div pre{
+            margin-left: 10px;
+        }
+        #mainContainer div pre a :hover{
+            color:red;
+        }
+        #searchBar{
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        #search{
+            width:600px;
+            height:40px;
+            border-radius: 10px;
+            border:1px solid black;
+            margin:10px 20px;
+        }
+        #searchBar form i{
+            font-size: larger;
+            border-radius: 5px;
+            height: 30px;
+            width: 30px;
+            padding:5px 5px
+        }
+        #searchBar form i:hover{
+            background-color: black;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<!--Header-->
+
+<div id="container">
+<h1 style="margin-top: 10px;margin-bottom: 10px;margin-left:600px;margin-right:50px;display: inline;">BOOK STORE APPLICATION</h1>
+<i class="fa-solid fa-user" style="font-size:30px;  margin-top: 10px; margin-left: 400px; margin-right: 0px;" id="icon"></i>
+<div id="pop">
+        <a href="http://localhost:8000/user/{{user}}">User</a>
+        <a href="http://localhost:8000/logout">Logout</a>
+</div>
+</div>
+
+<!-- Search Bar -->
+
+<div id="searchBar">
+    <form action="http://localhost:8000/app/{{user}}" method="post" id="searchForm">
+        <label for="search" style="font-size: larger;font-weight: bold;">SEARCH :</label><input list="items" id="search" name="hint">
+        <datalist id="items">
+            <option>The Hunger Games</option>
+            <option>Harry Potter and the Order of the Phoenix</option>
+            <option>To Kill a Mockingbird</option>
+            <option>Pride and Prejudice</option>
+            <option>Twilight</option>
+            <option>The Book Thief</option>
+            <option>Animal Farm</option>
+            <option>The Chronicles of Narnia</option>
+            <option>The Lord of the Rings</option>
+            <option>Gone with the Wind</option>
+            <option>The Fault in Our Stars</option>
+            <option>The Hitchhikers Guide to the Galaxy</option>
+            <option>The Giving Tree</option>
+            <option>Wuthering Heights</option>
+            <option>The Da Vinci Code</option>
+            <option>Memoirs of a Geisha</option>
+            <option>The Picture of Dorian Gray</option>
+            <option>Alice in Wonderland</option>
+            <option>Jane Eyre</option>
+            <option>Fahrenheit 451</option>
+            <option>Suzanne Collins</option>
+            <option>JK Rowling</option>
+            <option>Harper Lee</option>
+            <option>Jane Austen</option>
+            <option>Stephenie Meyer</option>
+            <option>Markus Zusak</option>
+            <option>George Orwell</option>
+            <option>C.S. Lewis</option>
+            <option>J.R.R. Tolkien</option>
+            <option>Margaret Mitchell</option>
+            <option>John Green</option>
+            <option>Douglas Adams</option>
+            <option>Shel Silverstein</option>
+            <option>Emily BrontÃ</option>
+            <option>Dan Brown</option>
+            <option>Arthur Golden</option>
+            <option>Oscar Wilde</option>
+            <option>Lewis Carrol</option>
+            <option>Charlotte BrontÃ</option>
+            <option>Ray Bradbury</option>
+            <option>Fantasy</option>
+            <option>Classic</option>
+            <option>Historical Fiction</option>
+            <option>Romance</option>
+            <option>Science Fiction</option>
+            <option>Thriller</option>
+        </datalist>
+        <i class="fa-solid fa-magnifying-glass" id="submit"></i>
+    </form>
+</div>
+
+<!--Body template-->
+<div id="mainContainer">
+{% for i in bookdata %}
+{% if i[0] == "The Hunger Games" %}
+<div>
+    <img src="../static/Images/Books/HungerGames.jpg" alt="The Hunger Games">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Harry Potter and the Order of the Phoenix" %}
+<div>
+    <img src="../static/Images/Books/HPOrderOfPheonix.jpg" alt="Harry Potter and the Order of the Phoenix">
+<pre>
+       <h3>{{i[0]}}</h3>
+       <h3>{{i[1]}}</h3>
+       <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Twilight" %}
+<div>
+    <img src="../static/Images/Books/Twilight.jpg" alt="Twilight">
+<pre>
+       <h3>{{i[0]}}</h3>
+       <h3>{{i[1]}}</h3>
+       <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "The Chronicles of Narnia" %}
+<div>
+    <img src="../static/Images/Books/Narnia.jpg" alt="The Chronicles of Narnia">
+<pre>
+       <h3>{{i[0]}}</h3>
+       <h3>{{i[1]}}</h3>
+       <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "The Lord of the Rings" %}
+<div>
+    <img src="../static/Images/Books/LordOfTheRings.jpg" alt="The Lord of the Rings">
+<pre>
+       <h3>{{i[0]}}</h3>
+       <h3>{{i[1]}}</h3>
+       <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "The Giving Tree" %}
+<div>
+    <img src="../static/Images/Books/GivingTree.jpg" alt="The Giving Tree">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "The Picture of Dorian Grey" %}
+<div>
+    <img src="../static/Images/Books/PictureOfDorianGrey.jpg" alt="The Picture of Dorian Grey">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Alice in Wonderland" %}
+<div>
+    <img src="../static/Images/Books/AliceInWonderland.jpg" alt="Alice in Wonderland">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "To Kill a Mockingbird" %}
+<div>
+    <img src="../static/Images/Books/ToKillAMockingBird.jpg" alt="To Kill a Mockingbird">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Pride and Prejudice" %}
+<div>
+    <img src="../static/Images/Books/PrideAndPrejudice.jpg" alt="Pride and Prejudice">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Animal Farm" %}
+<div>
+    <img src="../static/Images/Books/AnimalFarm.jpg" alt="Animal Farm">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Jane Eyre" %}
+<div>
+    <img src="../static/Images/Books/JaneEyre.jpg" alt="Jane Eyre">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "The Book Thief" %}
+<div>
+    <img src="../static/Images/Books/TheBookThief.jpg" alt="The Book Thief">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Gone with the Wind" %}
+<div>
+    <img src="../static/Images/Books/GoneWithTheWind.jpg" alt="Gone with the Wind">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Wuthering Heights" %}
+<div>
+    <img src="../static/Images/Books/WutheringHeights.jpg" alt="Wuthering Heights">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Memoirs of a Geisha" %}
+<div>
+    <img src="../static/Images/Books/MemoirsOfGeisha.jpg" alt="Memoirs of a Geisha">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "The Fault in Our Stars" %}
+<div>
+    <img src="../static/Images/Books/FaultInOurStars.jpg" alt="The Fault in Our Stars">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "The Hitchhikers Guide to the Galaxy" %}
+<div>
+    <img src="../static/Images/Books/HitchikersGuide.jpg" alt="The Hitchhikers Guide to the Galaxy">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "Fahrenheit 451" %}
+<div>
+    <img src="../static/Images/Books/Farenheit.jpg" alt="Fahrenheit 451">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+{% if i[0] == "The Da Vinci Code" %}
+<div>
+    <img src="../static/Images/Books/DaVinciCode.jpg" alt="The Da Vinci Code">
+<pre>
+        <h3>{{i[0]}}</h3>
+        <h3>{{i[1]}}</h3>
+        <h3>{{i[2]}}</h3>
+
+
+<a href="http://localhost:8000/placeOrder/{{i}}">Place Order</a>
+</pre>
+</div>
+{% endif %}
+
+{% endfor %}
+</div>
+
+<script>
+user = document.getElementById("pop");
+icon = document.getElementById("icon");
+icon.addEventListener("mouseover",()=>{
+    user.style.display = "block";
+});
+icon.addEventListener("click",()=>{
+    user.style.display = "none";
+});
+/* search request */
+var form = document.getElementById("searchForm");
+var button = document.getElementById("submit");
+button.addEventListener("click",()=>{
+    form.submit();
+})
+/*
+window.onscroll = ()=>{
+if( document.body.scrollTop > 5 || document.documentElement.scrollTop > 5){
+    document.getElementById("container").style.position = "fixed";
+}else{
+    document.getElementById("container").style.position = "relative";
+}  
+}*/
+</script>
+</body>
+</html>

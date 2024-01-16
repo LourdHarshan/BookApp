@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lourd Harshan">
+    <title>Ordering Page</title>
+    <link rel="icon" href="../static/Images/orderingPageIcon.png">
+</head>
+<style>
+    #container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: rgba(0,0,0,0.55);
+    }
+    #container div{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        background-color: white;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        border-radius: 5px;
+        width:400px;
+    }
+    #container div div img{
+        height:200px;
+        width:300px;
+    }
+</style>
+<body>
+<div id="container">
+<div>
+    {% if i[0] == "The Hunger Games" %}
+    <div>
+        <img src="../static/Images/Books/HungerGames.jpg" alt="The Hunger Games">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Harry Potter and the Order of the Phoenix" %}
+    <div>
+        <img src="../static/Images/Books/HPOrderOfPheonix.jpg" alt="Harry Potter and the Order of the Phoenix">
+    <pre>
+           <h3>{{i[0]}}</h3>
+           <h3>{{i[1]}}</h3>
+           <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Twilight" %}
+    <div>
+        <img src="../static/Images/Books/Twilight.jpg" alt="Twilight">
+    <pre>
+           <h3>{{i[0]}}</h3>
+           <h3>{{i[1]}}</h3>
+           <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "The Chronicles of Narnia" %}
+    <div>
+        <img src="../static/Images/Books/Narnia.jpg" alt="The Chronicles of Narnia">
+    <pre>
+           <h3>{{i[0]}}</h3>
+           <h3>{{i[1]}}</h3>
+           <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "The Lord of the Rings" %}
+    <div>
+        <img src="../static/Images/Books/LordOfTheRings.jpg" alt="The Lord of the Rings">
+    <pre>
+           <h3>{{i[0]}}</h3>
+           <h3>{{i[1]}}</h3>
+           <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "The Giving Tree" %}
+    <div>
+        <img src="../static/Images/Books/GivingTree.jpg" alt="The Giving Tree">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "The Picture of Dorian Grey" %}
+    <div>
+        <img src="../static/Images/Books/PictureOfDorianGrey.jpg" alt="The Picture of Dorian Grey">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Alice in Wonderland" %}
+    <div>
+        <img src="../static/Images/Books/AliceInWonderland.jpg" alt="Alice in Wonderland">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "To Kill a Mockingbird" %}
+    <div>
+        <img src="../static/Images/Books/ToKillAMockingBird.jpg" alt="To Kill a Mockingbird">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Pride and Prejudice" %}
+    <div>
+        <img src="../static/Images/Books/PrideAndPrejudice.jpg" alt="Pride and Prejudice">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Animal Farm" %}
+    <div>
+        <img src="../static/Images/Books/AnimalFarm.jpg" alt="Animal Farm">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Jane Eyre" %}
+    <div>
+        <img src="../static/Images/Books/JaneEyre.jpg" alt="Jane Eyre">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "The Book Thief" %}
+    <div>
+        <img src="../static/Images/Books/TheBookThief.jpg" alt="The Book Thief">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Gone with the Wind" %}
+    <div>
+        <img src="../static/Images/Books/GoneWithTheWind.jpg" alt="Gone with the Wind">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Wuthering Heights" %}
+    <div>
+        <img src="../static/Images/Books/WutheringHeights.jpg" alt="Wuthering Heights">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Memoirs of a Geisha" %}
+    <div>
+        <img src="../static/Images/Books/MemoirsOfGeisha.jpg" alt="Memoirs of a Geisha">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "The Fault in Our Stars" %}
+    <div>
+        <img src="../static/Images/Books/FaultInOurStars.jpg" alt="The Fault in Our Stars">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+<a href="http://localhost:8000/confirmOrder/{{i}}">confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "The Hitchhikers Guide to the Galaxy" %}
+    <div>
+        <img src="../static/Images/Books/HitchikersGuide.jpg" alt="The Hitchhikers Guide to the Galaxy">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "Fahrenheit 451" %}
+    <div>
+        <img src="../static/Images/Books/Farenheit.jpg" alt="Fahrenheit 451">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+    {% if i[0] == "The Da Vinci Code" %}
+    <div>
+        <img src="../static/Images/Books/DaVinciCode.jpg" alt="The Da Vinci Code">
+    <pre>
+            <h3>{{i[0]}}</h3>
+            <h3>{{i[1]}}</h3>
+            <h3>{{i[2]}}</h3>
+    
+    
+<a href="http://localhost:8000/confirmOrder/{{i}}">Confirm Order</a>
+    </pre>
+    </div>
+    {% endif %}
+</div>
+</div>   
+</body>
+</html>
